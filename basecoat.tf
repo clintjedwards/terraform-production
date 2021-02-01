@@ -1,5 +1,5 @@
 resource "google_compute_instance" "basecoat" {
-  provider            = "google"
+  provider            = google
   name                = "basecoat"
   machine_type        = "f1-micro"
   deletion_protection = "true"
