@@ -16,7 +16,7 @@ resource "google_compute_firewall" "semi-external-web-service" {
   //source_ranges are source filters in the UI
   source_ranges = [
     "71.190.170.86/32",  // Holbro
-    "108.46.37.98/32",   // Graham Ave
+    "71.190.142.124/32",   // Graham Ave
   ]
 }
 
