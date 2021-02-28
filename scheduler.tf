@@ -1,26 +1,28 @@
-resource "google_compute_address" "basecoat" {
-  name         = "basecoat"
+resource "google_compute_address" "scheduler" {
+  name         = "scheduler"
   region       = "us-east1"
   network_tier = "STANDARD"
 }
 
-resource "google_compute_instance" "basecoat" {
+resource "google_compute_instance" "scheduler" {
   provider            = google
-  name                = "basecoat"
+  name                = "scheduler"
   machine_type        = "f1-micro"
+  zone                = "us-east1-b"
   deletion_protection = "true"
-  hostname            = "basecoat.clintjedwards.com"
+  hostname            = "scheduler.clintjedwards.com"
   metadata            = {}
   labels = {
-    "basecoat" = ""
+    "scheduler" = ""
   }
   tags = [
-    "basecoat"
+    "scheduler"
   ]
 
   boot_disk {
     initialize_params {
-      image = "debian-9-stretch-v20190326"
+      size  = 10
+      image = "ubuntu-2004-focal-v20210223"
     }
   }
 
@@ -28,7 +30,7 @@ resource "google_compute_instance" "basecoat" {
     network = "default"
 
     access_config {
-      nat_ip       = google_compute_address.basecoat.address
+      nat_ip       = google_compute_address.scheduler.address
       network_tier = "STANDARD"
     }
   }
