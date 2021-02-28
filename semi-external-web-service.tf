@@ -2,7 +2,7 @@ resource "google_compute_firewall" "semi-external-web-service" {
   name        = "semi-external-web-service"
   description = "Firewall that allows only certain ip addresses to access web services"
   network     = "default"
-  target_tags = ["basecoat"]
+  target_tags = ["basecoat", "scheduler"]
 
   allow {
     protocol = "tcp"

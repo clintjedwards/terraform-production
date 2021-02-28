@@ -1,4 +1,3 @@
-
 resource "google_compute_firewall" "certbot" {
   name        = "certbot"
   description = "Certbot creates SSL certificates, it uses nginx to communicate over port 80 when needed"
