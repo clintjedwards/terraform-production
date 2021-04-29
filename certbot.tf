@@ -2,7 +2,7 @@ resource "google_compute_firewall" "certbot" {
   name        = "certbot"
   description = "Certbot creates SSL certificates, it uses nginx to communicate over port 80 when needed"
   network     = "default"
-  target_tags = ["basecoat", "scheduler"]
+  target_tags = ["basecoat"]
 
   allow {
     protocol = "tcp"
